@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,6 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Football Live Score"),
+        actions: [
+          IconButton(onPressed: (){
+            FirebaseAuth.instance.signOut();
+          }, icon: const Icon(Icons.logout))
+        ],
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('football').snapshots(),
