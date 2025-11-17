@@ -1,16 +1,15 @@
 import 'package:firebase_app/home_screen.dart';
-import 'package:firebase_app/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class FootballLiveScoreApp extends StatefulWidget {
-  const FootballLiveScoreApp({super.key});
+class StudentInfoApp extends StatefulWidget {
+  const StudentInfoApp({super.key});
 
   @override
-  State<FootballLiveScoreApp> createState() => _FootballLiveScoreAppState();
+  State<StudentInfoApp> createState() => _StudentInfoAppState();
 }
 
-class _FootballLiveScoreAppState extends State<FootballLiveScoreApp> {
+class _StudentInfoAppState extends State<StudentInfoApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +25,7 @@ class _FootballLiveScoreAppState extends State<FootballLiveScoreApp> {
           }
 
           if (!snapshot.hasData) {
-            return const SignInScreen();
+            return const HomeScreen();
           }else{
             return const HomeScreen();
           }

@@ -8,5 +8,5 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const FootballLiveScoreApp());
+  runApp(const StudentInfoApp());
 }
