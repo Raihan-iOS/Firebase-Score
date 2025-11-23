@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+           throw Exception('Add your own data logic here');
             FirebaseFirestore.instance.collection('football').doc('usavsiran').set({
               'is_running': true,
               'team1_name': 'USA',
