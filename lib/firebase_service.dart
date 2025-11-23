@@ -1,6 +1,8 @@
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import 'notification_navigator.dart';
+
 class FirebaseService {
  static Future<void> initialize() async{
    await FirebaseMessaging.instance.requestPermission(
@@ -31,7 +33,7 @@ class FirebaseService {
 
  static void onTokenRefreash(){
    FirebaseMessaging.instance.onTokenRefresh.listen((token) {
-     print(token);
+     print('Token--------' + token);
      //! call Update Token API
    });
  }
@@ -40,6 +42,9 @@ static void _handleNotificationMessage(RemoteMessage message){
   print(message.data);
   print(message.notification!.title);
   print(message.notification!.body);
+
+    NotificationNavigator().handleNavigation(message.data['route_name']);
+
 }
 
 
